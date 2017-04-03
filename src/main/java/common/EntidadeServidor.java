@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Classe persistida do Servidor com inteface fluente
@@ -22,6 +23,9 @@ public class EntidadeServidor {
 	@Column(name = "server_porta")
 	private Integer portaServer;
 
+	@Transient
+	private String Status;
+	
 	/**
 	 * @return the ipServer
 	 */
@@ -51,6 +55,21 @@ public class EntidadeServidor {
 	 */
 	public EntidadeServidor setPortaServer(final Integer portaServer) {
 		this.portaServer = portaServer;
+		return this;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return Status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public EntidadeServidor setStatus(final String status) {
+		Status = status;
 		return this;
 	}
 }
